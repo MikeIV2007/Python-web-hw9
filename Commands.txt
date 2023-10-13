@@ -1,0 +1,24 @@
+poetry init
+poetry shell
+poetry install
+Start MongoDB Compass (GUI client for MongoDB.) GUI Graphical User Interface
+
+1. Створіть хмарну базу даних Atlas MongoDB
+    Create new DB HW08_NoSQL with collection hw08
+
+2. За допомогою ODM Mongoengine створіть моделі для зберігання даних із цих файлів у колекціях authors та quotes.
+    Create file models.py:
+        poetry add mongoengine
+
+3. Під час зберігання цитат (quotes), поле автора в документі повинно бути не рядковим значенням, а [Reference fields](http://docs.mongoengine.org/guide/defining-documents.html?highlight=ReferenceField#reference -fields) полем, де зберігається ObjectID з колекції authors.
+
+4 Напишіть скрипти для завантаження json файлів у хмарну базу даних.
+    seed_json.py
+
+5 Реалізуйте скрипт для пошуку цитат за тегом, за ім'ям автора або набором тегів. 
+    Скрипт виконується в нескінченному циклі і за допомогою звичайного оператора input приймає команди у наступному форматі команда: значення. Приклад:
+    name: Steve Martin — знайти та повернути список всіх цитат автора Steve Martin;
+    tag:life — знайти та повернути список цитат для тега life;
+    tags:life,live — знайти та повернути список цитат, де є теги life або live (примітка: без пробілів між тегами life, live);
+    exit — завершити виконання скрипту;
+    Виведення результатів пошуку лише у форматі utf-8;
